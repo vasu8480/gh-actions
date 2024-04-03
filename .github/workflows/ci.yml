@@ -16,15 +16,23 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Ensure test data and sample data are present
+      - name: List files in testdata directory
+        run: ls -l ./testdata
+
+      # Grant execute permission to build script
       - name: Grant execute permission to build script
         run: chmod +x ./scripts/build.sh
 
+      # Run build script
       - name: Run build script
         run: ./scripts/build.sh
 
+      # Grant execute permission to test script
       - name: Grant execute permission to test script
         run: chmod +x ./scripts/test.sh
 
+      # Run tests
       - name: Run tests
         run: |
           ./scripts/test.sh > test_output.txt

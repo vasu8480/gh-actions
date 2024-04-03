@@ -16,6 +16,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Grant execute permission to build script
+        run: chmod +x ./scripts/build.sh
+
       - name: Run build script
         run: ./scripts/build.sh
 

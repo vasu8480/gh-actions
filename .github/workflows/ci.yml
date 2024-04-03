@@ -16,7 +16,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Ensure test data and sample data are present
+      # Run the Python script to generate test data
+      - name: Generate test data
+        run: python ./testdata/generate_test_data.py
+
+      # List files in the testdata directory to verify the generated data
       - name: List files in testdata directory
         run: ls -l ./testdata
 

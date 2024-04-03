@@ -29,3 +29,7 @@ jobs:
         run: |
           ./scripts/test.sh > test_output.txt
           cat test_output.txt
+
+      # Additional step to list configuration and test data files
+      - name: List configuration and test data files
+        run: ls -l config/ testdata/

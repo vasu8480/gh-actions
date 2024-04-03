@@ -8,6 +8,11 @@ data = [
 
 with open("sample_data.csv", "a", newline="") as csvfile:
     writer = csv.DictWriter(csvfile, fieldnames=["id", "name"])
+    
+    # Print field names
+    print("Field names:", writer.fieldnames)
+    
+    writer.writeheader()  # Write header if file is empty
     for item in data:
         writer.writerow(item)
 

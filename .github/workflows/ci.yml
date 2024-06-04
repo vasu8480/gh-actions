@@ -1,43 +1,10 @@
-name: CI
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
+name: First Workflow
+on: workflow_dispatch
 jobs:
-  build:
+  first-job:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      # Run the Python script to generate test data
-      - name: Generate test data
-        run: python ./testdata/generate_test_data.py
-
-      # List files in the testdata directory to verify the generated data
-      - name: List files in testdata directory
-        run: ls -l ./testdata
-
-      # Grant execute permission to build script
-      - name: Grant execute permission to build script
-        run: chmod +x ./scripts/build.sh
-
-      # Run build script
-      - name: Run build script
-        run: ./scripts/build.sh
-
-      # Grant execute permission to test script
-      - name: Grant execute permission to test script
-        run: chmod +x ./scripts/test.sh
-
-      # Run tests
-      - name: Run tests
-        run: |
-          ./scripts/test.sh > test_output.txt
-          cat test_output.txt
+      - name: Print greeting
+        run: echo "Hello World!"
+      - name: Print goodbye
+        run: echo "Done - bye!"
